@@ -2,19 +2,45 @@ var chai = require('chai')
 , assert = chai.assert
 , should = chai.should();
 
-describe('Server', function() {
+describe('Game', function() {
 
-  it('should be a Server object', function() {
-    var testS = new Server();
-    testS.should.be.ok;
+  it('should exist', function() {
+    var game = new Game();
+    game.should.be.ok;
   });
 
-  describe('startChat', function() {
+  describe('chat()', function() {
 
-    it('should return a new Chat instance', function() {
-      var testS = new Server();
-      var testC = testS.startChat();
-      testC.should.be.a('object');
+    it('should start a new chat', function() {
+      var game = new Game();
+      var chat = game.chat();
+      chat.should.be.ok;
+    });
+
+  });
+
+  describe('lobby()', function() {
+
+    it('should open a new lobby', function() {
+      var game = new Game();
+      var lobby = game.lobby();
+      lobby.should.be.ok;
+    });
+
+  });
+
+  describe('player()', function() {
+
+    it('should create a new player', function() {
+        var game = new Game();
+        var player = new Player('player1');
+        player.should.be.ok;
+    });
+
+    it('should add the player to the list of all players', function() {
+      var game = new Game();
+      var player = new Player('player1');
+      assert.equal(1, game.players.indexOf(player));
     });
 
   });
@@ -23,39 +49,71 @@ describe('Server', function() {
 
 describe('Chat', function() {
 
-  it('should be a Chat object', function() {
-    var testC = new Chat();
-    testC.should.be.ok;
+  it('should exist', function() {
+    var chat = new Chat();
+    chat.should.be.ok;
   });
 
-  describe('allMessages()', function() {
+  describe('messages()', function() {
 
-    it('should return the entire chat history', function() {
-      var testC = new Chat();
-      var chatH = testC.allMessages();
-      chatH.length.should.equal(0);
+    it('should get messages from the chat history', function() {
+      var chat = new Chat();
+      var message = 'old message';
+      chat.set(message);
+      chat.get().should.equal(message);
+    });
+
+    it('should set messages to the chat history', function() {
+      var chat = new Chat();
+      var message = 'new message';
+      chat.set(message);
+      chat.get().should.equal(message);
     });
 
   });
 
-  describe('lastMessage()', function() {
+});
 
-    it('should return the last message from chat history', function() {
-      var testC = new Chat();
-      var testM = 'new message';
-      testC.newMessage(testM);
-      testC.lastMessage().should.equal(testM);
+describe('Lobby', function() {
+
+  it('should exist', function() {
+    var lobby = new Lobby();
+    lobby.should.be.ok;
+  });
+
+  describe('state()', function() {
+
+    it('should get the state of the game', function() {
+      var game = new Game();
+      var state = 'waiting';
+      game.state(state);
+      game.state().should.equal(state);
+
+    });
+
+    it('should set the state of the game', function() {
+      var game = new Game();
+      var state = 'playing';
+      game.state(state);
+      game.state().should.equal(state);
     });
 
   });
 
-  describe('newMessage()', function() {
+  describe('players()', function() {
 
-    it('should add a new message to the chat history', function() {
-      var testC = new Chat();
-      var testM = 'new message';
-      testC.newMessage(testM);
-      testC.lastMessage().should.equal(testM);
+    it('should get the players in the lobby', function() {
+      var lobby = new Lobby();
+      var player = 'player1';
+      lobby.set(player);
+      lobby.get().should.equal(player);
+    });
+
+    it('should set the players in the lobby', function() {
+      var lobby = new Lobby();
+      var player = 'player2';
+      lobby.set(player);
+      lobby.get().should.equal(player);
     });
 
   });

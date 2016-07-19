@@ -8,6 +8,8 @@
 // https://en.wikipedia.org/wiki/Comet_%28programming%29
 // 5. Socket.io Deployment
 // http://book.mixu.net/node/ch13.html
+// 6. Method "Overloading" aka "Adaptable Functions" in JavaScript
+// http://stackoverflow.com/questions/10855908/how-to-overload-functions-in-javascript
 var path = require('path');
 var express = require('express');
 var http = require('http').Server();
