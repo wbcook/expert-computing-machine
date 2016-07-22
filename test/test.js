@@ -75,6 +75,12 @@ describe('Chat', function() {
 
   });
 
+  describe('replay()', function() {
+
+    it('should replay chat history to new chatters');
+
+  });
+
 });
 
 // Chess
