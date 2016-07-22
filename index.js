@@ -1,7 +1,7 @@
 // 1. Working with Objects
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-// 2. Array.slice()
-// http://stackoverflow.com/questions/5767325/remove-a-particular-element-from-an-array-in-javascript
+// 2. Array
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 // 3. CAH Online
 // https://github.com/ajanata/PretendYoureXyzzy
 // 4. Comet Programming
@@ -10,6 +10,14 @@
 // http://book.mixu.net/node/ch13.html
 // 6. Method "Overloading" aka "Adaptable Functions" in JavaScript
 // http://stackoverflow.com/questions/10855908/how-to-overload-functions-in-javascript
+// 7. BDD
+// https://en.wikipedia.org/wiki/Behavior-driven_development
+// 8. Node Modules
+// https://nodejs.org/api/modules.html#modules_modules
+// 9. Chai BDD Api
+// http://chaijs.com/api/bdd/
+// 10. Mocha
+// http://mochajs.org/
 var path = require('path');
 var express = require('express');
 var http = require('http').Server();
